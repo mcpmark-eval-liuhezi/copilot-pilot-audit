@@ -1,0 +1,13 @@
+name: pilot-ci
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: produce summary
+        run: echo "copilot pilot artifact" > summary.txt
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pilot-build-output
+          path: summary.txt
